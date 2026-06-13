@@ -11,6 +11,7 @@ import SlideAudit from "@/components/slides/SlideAudit";
 import SlideResteAFaire from "@/components/slides/SlideResteAFaire";
 import SlideQuestions from "@/components/slides/SlideQuestions";
 import ShaderBackground from "@/components/ShaderBackground";
+import MorphingArrowButton from "@/components/MorphingArrowButton";
 
 const SLIDES = [
   SlideTitre,
@@ -84,22 +85,22 @@ export default function Presentation() {
         </motion.div>
       </AnimatePresence>
 
-      <button
-        onClick={prev}
-        disabled={index === 0}
-        aria-label="Slide précédente"
-        className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl text-slate-300 backdrop-blur transition-all hover:border-gold/50 hover:text-gold disabled:opacity-20 disabled:hover:border-white/15 disabled:hover:text-slate-300"
-      >
-        ←
-      </button>
-      <button
-        onClick={next}
-        disabled={index === SLIDES.length - 1}
-        aria-label="Slide suivante"
-        className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl text-slate-300 backdrop-blur transition-all hover:border-gold/50 hover:text-gold disabled:opacity-20 disabled:hover:border-white/15 disabled:hover:text-slate-300"
-      >
-        →
-      </button>
+      <div className="absolute left-4 top-1/2 z-20 -translate-y-1/2">
+        <MorphingArrowButton
+          direction="left"
+          onClick={prev}
+          disabled={index === 0}
+          label="Slide précédente"
+        />
+      </div>
+      <div className="absolute right-4 top-1/2 z-20 -translate-y-1/2">
+        <MorphingArrowButton
+          direction="right"
+          onClick={next}
+          disabled={index === SLIDES.length - 1}
+          label="Slide suivante"
+        />
+      </div>
 
       <div className="absolute bottom-0 left-0 right-0 z-20">
         <div className="flex items-center justify-between px-6 pb-3">
