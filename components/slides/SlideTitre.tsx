@@ -2,24 +2,22 @@
 
 import { motion } from "framer-motion";
 import OceanBackground from "@/components/OceanBackground";
+import LiquidEffectAnimation from "@/components/LiquidEffectAnimation";
 import SafeImage from "@/components/SafeImage";
 
 export default function SlideTitre() {
   return (
     <div className="relative flex h-full w-full items-center justify-center">
-      <SafeImage
-        src="/images/bdt-batiment.jpg"
-        alt="Siège de la Brasserie de Tahiti"
-        className="absolute inset-0 h-full w-full object-cover opacity-20"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-ocean-950/70 via-ocean-950/40 to-ocean-950/80" />
+      {/* Fallback hors-ligne sous l'animation liquide (chargée depuis un CDN) */}
       <OceanBackground />
+      <LiquidEffectAnimation />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ocean-950/70 via-ocean-950/35 to-ocean-950/80" />
 
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, delay: 1.1 }}
-        className="absolute bottom-0 right-10 z-10 hidden h-[70%] items-end xl:flex"
+        className="pointer-events-none absolute bottom-0 right-10 z-10 hidden h-[70%] items-end xl:flex"
       >
         <SafeImage
           src="/images/hinano.png"
@@ -28,7 +26,7 @@ export default function SlideTitre() {
         />
       </motion.div>
 
-      <div className="relative z-10 flex flex-col items-center px-8 text-center">
+      <div className="pointer-events-none relative z-10 flex flex-col items-center px-8 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
