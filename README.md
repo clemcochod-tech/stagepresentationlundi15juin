@@ -19,6 +19,20 @@ Puis ouvrir [http://localhost:3000](http://localhost:3000).
 - Barre de progression et compteur « slide X / Y » en bas
 - Timeline Jour 1 → 5 cliquable sur la slide Contexte
 
+## Images
+
+Déposer les visuels dans `public/images/` avec ces noms exacts :
+
+| Fichier | Contenu | Utilisé sur |
+|---|---|---|
+| `logo-bdt.png` | Logo vahine Brasserie de Tahiti | Slides Titre & Questions |
+| `bdt-batiment.jpg` | Photo du siège BDT | Fond de la slide Titre |
+| `hinano.png` | Bouteille Hinano (fond transparent) | Slide Titre, à droite |
+| `omni-icon.png` | Icône Omni | Slide Contexte (chip stack) |
+
+Si un fichier manque, l'image est simplement masquée — la présentation
+fonctionne quand même.
+
 ## Stack
 
 - Next.js 14 (App Router), une seule page

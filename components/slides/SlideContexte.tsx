@@ -3,9 +3,14 @@
 import { motion } from "framer-motion";
 import SlideShell, { fadeUp } from "@/components/SlideShell";
 import Timeline from "@/components/Timeline";
+import SafeImage from "@/components/SafeImage";
 
 const STACK = [
-  { name: "Omni", role: "Couche sémantique & agent IA" },
+  {
+    name: "Omni",
+    role: "Couche sémantique & agent IA",
+    logo: "/images/omni-icon.png",
+  },
   { name: "SQL Server", role: "Entrepôt BDT_DWH" },
   { name: "dbt", role: "Transformations & marts" },
   { name: "SSMS", role: "Diagnostics SQL" },
@@ -30,10 +35,17 @@ export default function SlideContexte() {
         {STACK.map((tech) => (
           <div
             key={tech.name}
-            className="card card-hover flex items-baseline gap-2 px-4 py-2"
+            className="card card-hover flex items-center gap-2 px-4 py-2"
           >
+            {tech.logo && (
+              <SafeImage
+                src={tech.logo}
+                alt={`Logo ${tech.name}`}
+                className="h-5 w-5 rounded bg-white/90 object-contain p-0.5"
+              />
+            )}
             <span className="font-bold text-white">{tech.name}</span>
-            <span className="text-xs text-slate-400">{tech.role}</span>
+            <span className="text-xs text-slate-300">{tech.role}</span>
           </div>
         ))}
       </motion.div>

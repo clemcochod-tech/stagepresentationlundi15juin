@@ -1,10 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SafeImage from "@/components/SafeImage";
 
 export default function SlideQuestions() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center px-8 text-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="mb-8"
+      >
+        <SafeImage
+          src="/images/logo-bdt.png"
+          alt="Logo Brasserie de Tahiti"
+          className="h-20 w-auto rounded-2xl bg-white/95 p-2.5"
+        />
+      </motion.div>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

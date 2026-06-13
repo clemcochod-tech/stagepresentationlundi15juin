@@ -6,20 +6,20 @@ const config: Config = {
     extend: {
       colors: {
         ocean: {
-          950: "#040b14",
-          900: "#081523",
-          800: "#0d1f33",
-          700: "#143049",
+          950: "#0b1e33",
+          900: "#122a47",
+          800: "#1a395e",
+          700: "#244b78",
         },
         gold: {
-          DEFAULT: "#e9b94d",
-          light: "#f5d585",
-          dark: "#c4953a",
+          DEFAULT: "#f0c45e",
+          light: "#f8dd96",
+          dark: "#d4a345",
         },
         lagoon: {
-          DEFAULT: "#35d4c7",
-          light: "#7ce9df",
-          dark: "#1ba89d",
+          DEFAULT: "#4be0d3",
+          light: "#93eee5",
+          dark: "#27b5a9",
         },
       },
       fontFamily: {

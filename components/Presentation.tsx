@@ -60,7 +60,7 @@ export default function Presentation() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(20, 48, 73, 0.6), transparent), radial-gradient(ellipse 60% 50% at 90% 110%, rgba(27, 168, 157, 0.12), transparent)",
+            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(36, 75, 120, 0.7), transparent), radial-gradient(ellipse 60% 50% at 90% 110%, rgba(39, 181, 169, 0.18), transparent)",
         }}
       />
 
@@ -98,7 +98,7 @@ export default function Presentation() {
 
       <div className="absolute bottom-0 left-0 right-0 z-20">
         <div className="flex items-center justify-between px-6 pb-3">
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-400">
             BDT Data Hub · Semaine 1 · ← → pour naviguer
           </p>
           <p className="text-xs font-semibold text-slate-400">
