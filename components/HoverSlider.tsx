@@ -141,13 +141,19 @@ HoverSliderImageWrap.displayName = "HoverSliderImageWrap";
    utilisée à la place d'images pour les aperçus de slides */
 export const HoverSliderPanel = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { index: number }
->(({ index, children, className, ...props }, ref) => {
+  {
+    index: number;
+    className?: string;
+    onClick?: () => void;
+    children?: React.ReactNode;
+  }
+>(({ index, children, className, onClick }, ref) => {
   const { activeSlide } = useHoverSliderContext();
   return (
     <motion.div
       ref={ref}
       className={className}
+      onClick={onClick}
       transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}
       variants={clipPathVariants}
       animate={activeSlide === index ? "visible" : "hidden"}

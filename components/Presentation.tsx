@@ -11,6 +11,7 @@ import SlideAudit from "@/components/slides/SlideAudit";
 import SlideResteAFaire from "@/components/slides/SlideResteAFaire";
 import SlideQuestions from "@/components/slides/SlideQuestions";
 import ShaderBackground from "@/components/ShaderBackground";
+import OceanBackground from "@/components/OceanBackground";
 import MorphingArrowButton from "@/components/MorphingArrowButton";
 import SlideMenu from "@/components/SlideMenu";
 
@@ -32,8 +33,8 @@ const variants = {
 };
 
 export default function Presentation() {
+  const [view, setView] = useState<"home" | "slides">("home");
   const [[index, direction], setState] = useState([0, 0]);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const goTo = useCallback((next: number, dir: number) => {
     setState(([current]) => {
@@ -49,22 +50,24 @@ export default function Presentation() {
 
   const jumpTo = useCallback((target: number) => {
     setState(([current]) => [target, target >= current ? 1 : -1]);
-    setMenuOpen(false);
+    setView("slides");
   }, []);
+
+  const goHome = useCallback(() => setView("home"), []);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setMenuOpen(false);
+        setView("home");
         return;
       }
-      if (menuOpen) return;
+      if (view !== "slides") return;
       if (event.key === "ArrowRight" || event.key === " ") next();
       if (event.key === "ArrowLeft") prev();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [next, prev, menuOpen]);
+  }, [next, prev, view]);
 
   const ActiveSlide = SLIDES[index];
 
@@ -83,79 +86,82 @@ export default function Presentation() {
       </div>
 
       <AnimatePresence mode="wait" custom={direction} initial={false}>
-        <motion.div
-          key={index}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="relative z-10 h-full w-full"
-        >
-          <ActiveSlide />
-        </motion.div>
-      </AnimatePresence>
-
-      <button
-        onClick={() => setMenuOpen(true)}
-        className="absolute right-6 top-5 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-ocean-950/40 px-4 py-2 text-sm font-semibold text-slate-200 backdrop-blur transition-colors hover:border-gold hover:text-gold"
-      >
-        <span aria-hidden>☰</span> Sommaire
-      </button>
-
-      <AnimatePresence>
-        {menuOpen && (
+        {view === "home" ? (
           <motion.div
+            key="home"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 z-40 bg-ocean-950/95 backdrop-blur-md"
+            transition={{ duration: 0.4 }}
+            className="relative z-10 h-full w-full"
           >
-            <SlideMenu
-              current={index}
-              onSelect={jumpTo}
-              onClose={() => setMenuOpen(false)}
-            />
+            <OceanBackground />
+            <SlideMenu current={index} onSelect={jumpTo} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key={index}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="relative z-10 h-full w-full"
+          >
+            <ActiveSlide />
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="absolute left-4 top-1/2 z-20 -translate-y-1/2">
-        <MorphingArrowButton
-          direction="left"
-          onClick={prev}
-          disabled={index === 0}
-          label="Slide précédente"
-        />
-      </div>
-      <div className="absolute right-4 top-1/2 z-20 -translate-y-1/2">
-        <MorphingArrowButton
-          direction="right"
-          onClick={next}
-          disabled={index === SLIDES.length - 1}
-          label="Slide suivante"
-        />
-      </div>
+      {view === "slides" && (
+        <>
+          <button
+            onClick={goHome}
+            className="absolute right-6 top-5 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-ocean-950/40 px-4 py-2 text-sm font-semibold text-slate-200 backdrop-blur transition-colors hover:border-gold hover:text-gold"
+          >
+            <span aria-hidden>☰</span> Sommaire
+          </button>
 
-      <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="flex items-center justify-between px-6 pb-3">
-          <p className="text-xs text-slate-400">
-            BDT Data Hub · Semaine 1 · ← → pour naviguer
-          </p>
-          <p className="text-xs font-semibold text-slate-400">
-            {index + 1} / {SLIDES.length}
-          </p>
-        </div>
-        <div className="h-1 w-full bg-white/5">
-          <motion.div
-            className="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light"
-            animate={{ width: `${((index + 1) / SLIDES.length) * 100}%` }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          />
-        </div>
-      </div>
+          <div className="absolute left-4 top-1/2 z-20 -translate-y-1/2">
+            <MorphingArrowButton
+              direction="left"
+              onClick={prev}
+              disabled={index === 0}
+              label="Slide précédente"
+            />
+          </div>
+          <div className="absolute right-4 top-1/2 z-20 -translate-y-1/2">
+            <MorphingArrowButton
+              direction="right"
+              onClick={next}
+              disabled={index === SLIDES.length - 1}
+              label="Slide suivante"
+            />
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 z-20">
+            <div className="flex items-center justify-between px-6 pb-3">
+              <button
+                onClick={goHome}
+                className="text-xs text-slate-400 transition-colors hover:text-gold"
+              >
+                BDT Data Hub · Semaine 1 · Échap pour le sommaire
+              </button>
+              <p className="text-xs font-semibold text-slate-400">
+                {index + 1} / {SLIDES.length}
+              </p>
+            </div>
+            <div className="h-1 w-full bg-white/5">
+              <motion.div
+                className="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light"
+                animate={{ width: `${((index + 1) / SLIDES.length) * 100}%` }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </main>
   );
 }

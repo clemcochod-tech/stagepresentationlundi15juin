@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   HoverSlider,
   TextStaggerHover,
@@ -65,10 +66,20 @@ const ENTRIES: MenuEntry[] = [
   },
 ];
 
+const listVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
+
 type SlideMenuProps = {
   current: number;
   onSelect: (index: number) => void;
-  onClose: () => void;
+  onClose?: () => void;
 };
 
 export default function SlideMenu({
@@ -78,52 +89,76 @@ export default function SlideMenu({
 }: SlideMenuProps) {
   return (
     <div className="relative h-full w-full">
-      <button
-        onClick={onClose}
-        aria-label="Fermer le sommaire"
-        className="absolute right-6 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-xl text-slate-300 transition-colors hover:border-gold hover:text-gold"
-      >
-        ✕
-      </button>
+      {onClose && (
+        <button
+          onClick={onClose}
+          aria-label="Fermer le sommaire"
+          className="absolute right-6 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-xl text-slate-300 transition-colors hover:border-gold hover:text-gold"
+        >
+          ✕
+        </button>
+      )}
 
       <HoverSlider
         initialSlide={current}
-        className="mx-auto flex h-full w-full max-w-6xl items-center justify-center gap-16 px-10"
+        className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-10 px-10 lg:flex-row lg:items-center lg:gap-16"
       >
-        <nav className="flex flex-col items-start gap-3 lg:gap-4">
-          <p className="kicker mb-4">Sommaire</p>
-          {ENTRIES.map((entry, index) => (
-            <button
-              key={entry.name}
-              onClick={() => onSelect(index)}
-              className="group flex items-baseline gap-4 text-left"
-            >
-              <span className="w-7 font-mono text-sm text-slate-500 transition-colors group-hover:text-gold">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <TextStaggerHover
-                text={entry.name}
-                index={index}
-                className="cursor-pointer text-4xl font-extrabold uppercase tracking-tight text-white lg:text-5xl"
-              />
-            </button>
-          ))}
-        </nav>
+        <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <p className="kicker mb-3">Brasserie de Tahiti · Stage Data</p>
+            <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+              <span className="text-gradient">BDT Data Hub</span>
+              <span className="text-white"> — Semaine 1</span>
+            </h1>
+            <p className="mt-3 text-sm text-slate-400">
+              Cliquez sur une slide pour démarrer la présentation
+            </p>
+          </motion.div>
 
-        <HoverSliderImageWrap className="hidden h-[340px] w-[400px] shrink-0 rounded-3xl border border-white/15 lg:grid">
+          <motion.nav
+            variants={listVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-start gap-2 lg:gap-3"
+          >
+            {ENTRIES.map((entry, index) => (
+              <motion.button
+                key={entry.name}
+                variants={itemVariants}
+                onClick={() => onSelect(index)}
+                className="group flex items-baseline gap-4 text-left"
+              >
+                <span className="w-7 font-mono text-sm text-slate-500 transition-colors group-hover:text-gold">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <TextStaggerHover
+                  text={entry.name}
+                  index={index}
+                  className="cursor-pointer text-3xl font-extrabold uppercase tracking-tight text-white lg:text-4xl"
+                />
+              </motion.button>
+            ))}
+          </motion.nav>
+        </div>
+
+        <HoverSliderImageWrap className="hidden h-[360px] w-[420px] shrink-0 rounded-3xl border border-white/15 lg:grid">
           {ENTRIES.map((entry, index) => (
             <HoverSliderPanel
               key={entry.name}
               index={index}
-              className="relative flex flex-col justify-end overflow-hidden bg-gradient-to-br from-ocean-800 via-ocean-900 to-[#231803] p-8"
+              className="relative flex cursor-pointer flex-col justify-end overflow-hidden bg-gradient-to-br from-ocean-800 via-ocean-900 to-[#231803] p-8"
+              onClick={() => onSelect(index)}
             >
               <span className="pointer-events-none absolute -right-4 -top-10 text-[11rem] font-extrabold leading-none text-gold/10">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="kicker mb-2">{entry.kicker}</p>
-              <p className="text-3xl font-extrabold text-white">
-                {entry.name}
-              </p>
+              <p className="text-3xl font-extrabold text-white">{entry.name}</p>
               <p className="mt-3 text-sm text-slate-300">{entry.detail}</p>
               <p className="mt-5 inline-block text-2xl font-extrabold text-gradient">
                 {entry.highlight}
