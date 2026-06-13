@@ -12,6 +12,7 @@ import SlideResteAFaire from "@/components/slides/SlideResteAFaire";
 import SlideQuestions from "@/components/slides/SlideQuestions";
 import ShaderBackground from "@/components/ShaderBackground";
 import OceanBackground from "@/components/OceanBackground";
+import LiquidEffectAnimation from "@/components/LiquidEffectAnimation";
 import MorphingArrowButton from "@/components/MorphingArrowButton";
 import SlideMenu from "@/components/SlideMenu";
 
@@ -72,12 +73,12 @@ export default function Presentation() {
   const ActiveSlide = SLIDES[index];
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-ocean-950">
+    <main className="relative h-screen w-screen overflow-hidden bg-sky-50">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(36, 75, 120, 0.7), transparent), radial-gradient(ellipse 60% 50% at 90% 110%, rgba(240, 196, 94, 0.14), transparent)",
+            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(163, 210, 241, 0.55), transparent), radial-gradient(ellipse 60% 50% at 90% 110%, rgba(240, 196, 94, 0.20), transparent)",
         }}
       />
 
@@ -95,8 +96,14 @@ export default function Presentation() {
             transition={{ duration: 0.4 }}
             className="relative z-10 h-full w-full"
           >
+            <div className="absolute inset-0 opacity-60">
+              <LiquidEffectAnimation />
+            </div>
             <OceanBackground />
-            <SlideMenu current={index} onSelect={jumpTo} />
+            <div className="pointer-events-none absolute inset-0 bg-sky-50/55" />
+            <div className="relative z-10 h-full w-full">
+              <SlideMenu current={index} onSelect={jumpTo} />
+            </div>
           </motion.div>
         ) : (
           <motion.div
@@ -118,7 +125,7 @@ export default function Presentation() {
         <>
           <button
             onClick={goHome}
-            className="absolute right-6 top-5 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-ocean-950/40 px-4 py-2 text-sm font-semibold text-slate-200 backdrop-blur transition-colors hover:border-gold hover:text-gold"
+            className="absolute right-6 top-5 z-20 flex items-center gap-2 rounded-full border border-ocean-900/15 bg-white/70 px-4 py-2 text-sm font-semibold text-ocean-800 backdrop-blur transition-colors hover:border-gold hover:text-gold-dark"
           >
             <span aria-hidden>☰</span> Sommaire
           </button>
@@ -144,15 +151,15 @@ export default function Presentation() {
             <div className="flex items-center justify-between px-6 pb-3">
               <button
                 onClick={goHome}
-                className="text-xs text-slate-400 transition-colors hover:text-gold"
+                className="text-xs text-ocean-600 transition-colors hover:text-gold-dark"
               >
                 BDT Data Hub · Semaine 1 · Échap pour le sommaire
               </button>
-              <p className="text-xs font-semibold text-slate-400">
+              <p className="text-xs font-semibold text-ocean-600">
                 {index + 1} / {SLIDES.length}
               </p>
             </div>
-            <div className="h-1 w-full bg-white/5">
+            <div className="h-1 w-full bg-ocean-900/10">
               <motion.div
                 className="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light"
                 animate={{ width: `${((index + 1) / SLIDES.length) * 100}%` }}

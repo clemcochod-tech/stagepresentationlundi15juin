@@ -33,17 +33,17 @@ export default function SlideAudit() {
         <div className="card card-hover px-6 py-5 text-center">
           <p className="text-6xl font-extrabold text-gold">
             <AnimatedCounter value={7.5} decimals={1} />
-            <span className="text-2xl text-slate-400">/10</span>
+            <span className="text-2xl text-ocean-600">/10</span>
           </p>
-          <p className="mt-2 text-sm text-slate-300">
+          <p className="mt-2 text-sm text-ocean-700">
             Architecture solide, au-dessus de la moyenne
           </p>
         </div>
         <div className="card card-hover px-6 py-5 text-center">
-          <p className="text-6xl font-extrabold text-gold-light">
+          <p className="text-6xl font-extrabold text-gold-dark">
             <AnimatedCounter value={48} />
           </p>
-          <p className="mt-2 text-sm text-slate-300">
+          <p className="mt-2 text-sm text-ocean-700">
             bugs traités — audit à 11 catégories sur les 8 skills
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function SlideAudit() {
           <p className="text-6xl font-extrabold text-gold">
             <AnimatedCounter value={13} />
           </p>
-          <p className="mt-2 text-sm text-slate-300">
+          <p className="mt-2 text-sm text-ocean-700">
             topics actifs, 100% documentés
           </p>
         </div>
@@ -59,17 +59,17 @@ export default function SlideAudit() {
 
       <motion.div variants={fadeUp} className="mt-8 grid gap-6 lg:grid-cols-2">
         <div className="card overflow-hidden">
-          <p className="border-b border-white/10 px-5 py-3 text-sm font-bold uppercase tracking-wider text-slate-300">
+          <p className="border-b border-ocean-900/10 px-5 py-3 text-sm font-bold uppercase tracking-wider text-ocean-700">
             État du modèle au 12/06
           </p>
           <table className="w-full text-sm">
             <tbody>
               {ETAT_MODELE.map((row) => (
-                <tr key={row.perimetre} className="border-b border-white/5 last:border-0">
-                  <td className="px-5 py-2.5 font-semibold text-white">
+                <tr key={row.perimetre} className="border-b border-ocean-900/10 last:border-0">
+                  <td className="px-5 py-2.5 font-semibold text-ocean-900">
                     {row.perimetre}
                   </td>
-                  <td className="px-5 py-2.5 text-slate-400">{row.etat}</td>
+                  <td className="px-5 py-2.5 text-ocean-600">{row.etat}</td>
                   <td className="px-3 py-2.5 text-right">
                     {row.ok ? "✅" : "⏳"}
                   </td>
@@ -79,10 +79,10 @@ export default function SlideAudit() {
           </table>
         </div>
         <div className="card px-5 py-4">
-          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-300">
+          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-ocean-700">
             Corrections critiques appliquées
           </p>
-          <ul className="space-y-2.5 text-sm text-slate-300">
+          <ul className="space-y-2.5 text-sm text-ocean-700">
             {CORRECTIONS.map((c) => (
               <li key={c} className="flex gap-2">
                 <span className="text-gold">▸</span>

@@ -35,9 +35,9 @@ export default function OceanBackground() {
     }));
 
     const waves = [
-      { amplitude: 26, length: 0.004, speed: 0.012, offset: 0.82, color: "rgba(240, 196, 94, 0.10)" },
-      { amplitude: 34, length: 0.003, speed: 0.008, offset: 0.86, color: "rgba(240, 196, 94, 0.07)" },
-      { amplitude: 44, length: 0.002, speed: 0.005, offset: 0.9, color: "rgba(75, 224, 211, 0.05)" },
+      { amplitude: 26, length: 0.004, speed: 0.012, offset: 0.82, color: "rgba(107, 180, 230, 0.16)" },
+      { amplitude: 34, length: 0.003, speed: 0.008, offset: 0.86, color: "rgba(163, 210, 241, 0.14)" },
+      { amplitude: 44, length: 0.002, speed: 0.005, offset: 0.9, color: "rgba(240, 196, 94, 0.12)" },
     ];
 
     const onResize = () => {
@@ -59,7 +59,7 @@ export default function OceanBackground() {
         }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(248, 221, 150, ${p.alpha})`;
+        ctx.fillStyle = `rgba(58, 147, 216, ${p.alpha * 0.6})`;
         ctx.fill();
       }
 

@@ -28,7 +28,7 @@ const COLONNES = [
   {
     titre: "Prochaines semaines",
     icon: "🗓️",
-    accent: "border-t-slate-400",
+    accent: "border-t-sky-400",
     items: [
       "Dashboards Pilotage Stocks, Suivi PR, Consos vs Prévisions",
       "Occupation entrepôt (semaine 6 feuille de route)",
@@ -54,10 +54,10 @@ export default function SlideResteAFaire() {
             whileHover={{ y: -6 }}
             className={`card card-hover border-t-4 px-5 py-5 ${col.accent}`}
           >
-            <p className="flex items-center gap-2 text-lg font-bold text-white">
+            <p className="flex items-center gap-2 text-lg font-bold text-ocean-900">
               <span>{col.icon}</span> {col.titre}
             </p>
-            <ul className="mt-4 space-y-3 text-sm text-slate-300">
+            <ul className="mt-4 space-y-3 text-sm text-ocean-700">
               {col.items.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="text-gold">▸</span>
@@ -73,7 +73,7 @@ export default function SlideResteAFaire() {
         variants={fadeUp}
         className="card mt-8 border-l-4 border-l-gold px-6 py-4"
       >
-        <p className="text-sm text-slate-300">
+        <p className="text-sm text-ocean-700">
           <span className="font-bold text-gold">Leçon de la semaine :</span>{" "}
           l&apos;ai_context est la clé du self-service — un topic bien documenté
           répond du premier coup, un topic mal documenté hallucine. La

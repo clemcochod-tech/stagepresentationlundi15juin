@@ -37,7 +37,7 @@ export default function SlideVentes() {
           <div key={step.label} className="flex items-center gap-4">
             <div className="card card-hover px-6 py-4">
               <p className="text-2xl font-extrabold text-gold">{step.label}</p>
-              <p className="mt-1 font-mono text-xs text-slate-400">
+              <p className="mt-1 font-mono text-xs text-ocean-600">
                 {step.formula}
               </p>
             </div>
@@ -52,7 +52,7 @@ export default function SlideVentes() {
         <div className="card px-6 py-5">
           <p className="text-5xl font-extrabold text-gold">
             <AnimatedCounter value={8} />
-            <span className="ml-2 text-xl font-semibold text-slate-300">
+            <span className="ml-2 text-xl font-semibold text-ocean-700">
               skills Omni créés
             </span>
           </p>
@@ -60,7 +60,7 @@ export default function SlideVentes() {
             {SKILLS.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-light"
+                className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-dark"
               >
                 {skill}
               </span>
@@ -69,25 +69,25 @@ export default function SlideVentes() {
         </div>
 
         <div className="card border-emerald-400/30 px-6 py-5">
-          <p className="text-5xl font-extrabold text-emerald-400">
+          <p className="text-5xl font-extrabold text-emerald-600">
             <AnimatedCounter value={0.001} decimals={3} />
             <span className="text-2xl">%</span>
             <span className="ml-3 text-3xl">✅</span>
           </p>
-          <p className="mt-2 text-sm text-slate-300">
+          <p className="mt-2 text-sm text-ocean-700">
             d&apos;écart vs Excel SSAS sur{" "}
-            <span className="font-bold text-white">4 Mds XPF</span> d&apos;achats
+            <span className="font-bold text-ocean-900">4 Mds XPF</span> d&apos;achats
             2025 — la donnée Omni est fiable.
           </p>
-          <p className="mt-3 text-xs text-slate-400">
+          <p className="mt-3 text-xs text-ocean-600">
             + 11 mesures opérationnelles : ca_brut, ca_net, ca_hd, colis_livr,
             taux_remise, panier_moyen, ticket_moyen…
           </p>
         </div>
       </motion.div>
 
-      <motion.p variants={fadeUp} className="mt-6 text-sm text-slate-400">
-        Topic <span className="font-semibold text-slate-200">Prévisions Ventes</span>{" "}
+      <motion.p variants={fadeUp} className="mt-6 text-sm text-ocean-600">
+        Topic <span className="font-semibold text-ocean-800">Prévisions Ventes</span>{" "}
         créé depuis zéro, avec mesures YTD dynamiques et règle anti-fanout
         documentée.
       </motion.p>

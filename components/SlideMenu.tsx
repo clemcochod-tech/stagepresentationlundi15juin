@@ -93,7 +93,7 @@ export default function SlideMenu({
         <button
           onClick={onClose}
           aria-label="Fermer le sommaire"
-          className="absolute right-6 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-xl text-slate-300 transition-colors hover:border-gold hover:text-gold"
+          className="absolute right-6 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-ocean-900/20 bg-white/70 text-xl text-ocean-700 backdrop-blur transition-colors hover:border-gold hover:text-gold-dark"
         >
           ✕
         </button>
@@ -113,9 +113,9 @@ export default function SlideMenu({
             <p className="kicker mb-3">Brasserie de Tahiti · Stage Data</p>
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
               <span className="text-gradient">BDT Data Hub</span>
-              <span className="text-white"> — Semaine 1</span>
+              <span className="text-ocean-900"> — Semaine 1</span>
             </h1>
-            <p className="mt-3 text-sm text-slate-400">
+            <p className="mt-3 text-sm text-ocean-600">
               Cliquez sur une slide pour démarrer la présentation
             </p>
           </motion.div>
@@ -133,33 +133,33 @@ export default function SlideMenu({
                 onClick={() => onSelect(index)}
                 className="group flex items-baseline gap-4 text-left"
               >
-                <span className="w-7 font-mono text-sm text-slate-500 transition-colors group-hover:text-gold">
+                <span className="w-7 font-mono text-sm text-ocean-500 transition-colors group-hover:text-gold-dark">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <TextStaggerHover
                   text={entry.name}
                   index={index}
-                  className="cursor-pointer text-3xl font-extrabold uppercase tracking-tight text-white lg:text-4xl"
+                  className="cursor-pointer text-3xl font-extrabold uppercase tracking-tight text-ocean-900 lg:text-4xl"
                 />
               </motion.button>
             ))}
           </motion.nav>
         </div>
 
-        <HoverSliderImageWrap className="hidden h-[360px] w-[420px] shrink-0 rounded-3xl border border-white/15 lg:grid">
+        <HoverSliderImageWrap className="hidden h-[360px] w-[420px] shrink-0 rounded-3xl border border-ocean-900/10 shadow-glow lg:grid">
           {ENTRIES.map((entry, index) => (
             <HoverSliderPanel
               key={entry.name}
               index={index}
-              className="relative flex cursor-pointer flex-col justify-end overflow-hidden bg-gradient-to-br from-ocean-800 via-ocean-900 to-[#231803] p-8"
+              className="relative flex cursor-pointer flex-col justify-end overflow-hidden bg-gradient-to-br from-white via-sky-100 to-gold-light/40 p-8"
               onClick={() => onSelect(index)}
             >
-              <span className="pointer-events-none absolute -right-4 -top-10 text-[11rem] font-extrabold leading-none text-gold/10">
+              <span className="pointer-events-none absolute -right-4 -top-10 text-[11rem] font-extrabold leading-none text-gold/20">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="kicker mb-2">{entry.kicker}</p>
-              <p className="text-3xl font-extrabold text-white">{entry.name}</p>
-              <p className="mt-3 text-sm text-slate-300">{entry.detail}</p>
+              <p className="text-3xl font-extrabold text-ocean-900">{entry.name}</p>
+              <p className="mt-3 text-sm text-ocean-700">{entry.detail}</p>
               <p className="mt-5 inline-block text-2xl font-extrabold text-gradient">
                 {entry.highlight}
               </p>

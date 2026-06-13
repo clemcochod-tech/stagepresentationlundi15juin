@@ -66,11 +66,11 @@ export default function SlideWMS() {
           >
             <span className="text-3xl">{topic.icon}</span>
             <div className="min-w-0">
-              <p className="font-bold text-white">{topic.name}</p>
-              <p className="mt-1 text-sm text-slate-400">{topic.questions}</p>
+              <p className="font-bold text-ocean-900">{topic.name}</p>
+              <p className="mt-1 text-sm text-ocean-600">{topic.questions}</p>
               <p
                 className={`mt-2 text-xs font-semibold ${
-                  topic.ok ? "text-emerald-400" : "text-amber-400"
+                  topic.ok ? "text-emerald-600" : "text-amber-500"
                 }`}
               >
                 {topic.status}
@@ -85,10 +85,10 @@ export default function SlideWMS() {
           <p className="text-sm font-bold uppercase tracking-wider text-gold">
             Pattern commun
           </p>
-          <p className="mt-2 font-mono text-sm text-slate-300">
+          <p className="mt-2 font-mono text-sm text-ocean-700">
             view → ai_context → topic → test → correction → merge
           </p>
-          <p className="mt-2 text-xs text-slate-400">
+          <p className="mt-2 text-xs text-ocean-600">
             5 règles WMS factorisées dans le modèle global : qte_abs,
             annee_semaine, dates absolues, fallback temporel, SELECT FROM topic.
           </p>

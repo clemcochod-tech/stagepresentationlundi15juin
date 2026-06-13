@@ -93,8 +93,8 @@ export default function MorphingArrowButton({
           disabled={disabled}
           aria-label={label}
           className={cn(
-            "relative flex w-full cursor-pointer items-center justify-center overflow-hidden border bg-ocean-950/40 backdrop-blur transition-colors duration-300",
-            hovered ? "border-gold text-gold" : "border-white/30 text-slate-200",
+            "relative flex w-full cursor-pointer items-center justify-center overflow-hidden border bg-white/70 backdrop-blur transition-colors duration-300",
+            hovered ? "border-gold text-gold-dark" : "border-ocean-900/20 text-ocean-700",
             disabled && "cursor-default opacity-20",
           )}
           variants={buttonVariants}
@@ -105,7 +105,7 @@ export default function MorphingArrowButton({
           <div className="relative flex h-full w-full items-center">
             <motion.div
               className={cn(
-                "absolute top-1/2 h-0.5 -translate-y-1/2 bg-gold",
+                "absolute top-1/2 h-0.5 -translate-y-1/2 bg-gold-dark",
                 isLeft ? "right-5" : "left-5",
               )}
               variants={lineVariants}

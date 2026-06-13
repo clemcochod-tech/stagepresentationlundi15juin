@@ -5,21 +5,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /* Bleus clairs — fonds */
+        sky: {
+          50: "#f4faff",
+          100: "#e6f2fc",
+          200: "#cce6f8",
+          300: "#a3d2f1",
+          400: "#6bb4e6",
+          500: "#3a93d8",
+          600: "#2576b6",
+        },
+        /* Bleus profonds — textes & titres sur fond clair */
         ocean: {
           950: "#0b1e33",
-          900: "#122a47",
-          800: "#1a395e",
-          700: "#244b78",
+          900: "#13233a",
+          800: "#1e3a5c",
+          700: "#2b5380",
+          600: "#3a6ba0",
+          500: "#5183b8",
         },
+        /* Jaune conservé */
         gold: {
           DEFAULT: "#f0c45e",
           light: "#f8dd96",
-          dark: "#d4a345",
+          dark: "#c79324",
         },
         lagoon: {
-          DEFAULT: "#4be0d3",
-          light: "#93eee5",
-          dark: "#27b5a9",
+          DEFAULT: "#3a93d8",
+          light: "#6bb4e6",
+          dark: "#2576b6",
         },
       },
       fontFamily: {
@@ -35,8 +49,8 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        glow: "0 0 40px rgba(53, 212, 199, 0.15)",
-        "glow-gold": "0 0 40px rgba(233, 185, 77, 0.15)",
+        glow: "0 10px 40px rgba(58, 147, 216, 0.18)",
+        "glow-gold": "0 10px 40px rgba(240, 196, 94, 0.28)",
       },
     },
   },

@@ -9,9 +9,9 @@ export default function SlideQuestions() {
       <SafeImage
         src="/images/bdt-batiment.jpg"
         alt="Siège de la Brasserie de Tahiti"
-        className="absolute inset-0 h-full w-full object-cover opacity-15"
+        className="absolute inset-0 h-full w-full object-cover opacity-20"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ocean-950/85 via-ocean-950/55 to-ocean-950/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-50/85 via-sky-50/55 to-sky-50/85" />
 
       <div className="relative z-10 flex flex-col items-center">
         <motion.p
@@ -34,13 +34,13 @@ export default function SlideQuestions() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-10 flex flex-col items-center gap-2 text-slate-300"
+          className="mt-10 flex flex-col items-center gap-2 text-ocean-700"
         >
-          <p className="text-lg font-semibold text-white">Clément Cochod</p>
+          <p className="text-lg font-semibold text-ocean-900">Clément Cochod</p>
           <p>Stagiaire Data — BDT Data Hub</p>
           <a
             href="mailto:clemcochod@gmail.com"
-            className="mt-2 text-gold transition-colors hover:text-gold-light"
+            className="mt-2 text-gold transition-colors hover:text-gold-dark"
           >
             clemcochod@gmail.com
           </a>

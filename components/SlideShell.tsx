@@ -32,7 +32,7 @@ export default function SlideShell({ kicker, title, children }: SlideShellProps)
       </motion.p>
       <motion.h2
         variants={fadeUp}
-        className="mb-8 text-4xl font-extrabold tracking-tight text-white lg:text-5xl"
+        className="mb-8 text-4xl font-extrabold tracking-tight text-ocean-900 lg:text-5xl"
       >
         {title}
       </motion.h2>

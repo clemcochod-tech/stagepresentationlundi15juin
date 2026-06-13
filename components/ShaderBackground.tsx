@@ -25,7 +25,7 @@ const FS_SOURCE = `
   const float minorLineFrequency = 1.0;
   const vec4 gridColor = vec4(0.5);
   const float scale = 5.0;
-  const vec4 lineColor = vec4(0.95, 0.76, 0.36, 1.0);
+  const vec4 lineColor = vec4(1.0, 1.0, 1.0, 1.0);
   const float minLineWidth = 0.01;
   const float maxLineWidth = 0.2;
   const float lineSpeed = 1.0 * overallSpeed;
@@ -66,8 +66,8 @@ const FS_SOURCE = `
     space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
 
     vec4 lines = vec4(0.0);
-    vec4 bgColor1 = vec4(0.04, 0.12, 0.20, 1.0);
-    vec4 bgColor2 = vec4(0.22, 0.15, 0.04, 1.0);
+    vec4 bgColor1 = vec4(0.89, 0.95, 1.0, 1.0);
+    vec4 bgColor2 = vec4(1.0, 0.97, 0.88, 1.0);
 
     for(int l = 0; l < linesPerGroup; l++) {
       float normalizedLineIndex = float(l) / float(linesPerGroup);
@@ -88,9 +88,10 @@ const FS_SOURCE = `
     }
 
     fragColor = mix(bgColor1, bgColor2, uv.x);
-    fragColor *= verticalFade;
+    fragColor = mix(vec4(1.0), fragColor, 0.45 + 0.55 * verticalFade);
+    float li = clamp((lines.r + lines.g + lines.b) / 2.5, 0.0, 1.0);
+    fragColor.rgb = mix(fragColor.rgb, vec3(0.82, 0.62, 0.15), li);
     fragColor.a = 1.0;
-    fragColor += lines;
 
     gl_FragColor = fragColor;
   }

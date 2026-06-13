@@ -9,23 +9,23 @@ body {
 }
 
 ::selection {
-  background: rgba(53, 212, 199, 0.3);
+  background: rgba(240, 196, 94, 0.35);
 }
 
 @layer components {
   .text-gradient {
-    @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sky-600 via-sky-500 to-gold-dark bg-clip-text text-transparent;
   }
 
   .card {
-    @apply rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-sm transition-colors duration-300;
+    @apply rounded-2xl border border-ocean-900/10 bg-white/70 shadow-sm backdrop-blur-sm transition-colors duration-300;
   }
 
   .card-hover {
-    @apply hover:border-gold/40 hover:bg-white/[0.14] hover:shadow-glow-gold;
+    @apply hover:border-gold/60 hover:bg-white/90 hover:shadow-glow-gold;
   }
 
   .kicker {
-    @apply text-sm font-semibold uppercase tracking-[0.25em] text-gold;
+    @apply text-sm font-semibold uppercase tracking-[0.25em] text-gold-dark;
   }
 }

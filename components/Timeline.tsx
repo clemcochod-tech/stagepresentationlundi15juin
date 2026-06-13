@@ -48,7 +48,7 @@ export default function Timeline() {
   return (
     <div>
       <div className="relative flex items-center justify-between">
-        <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-gold/20 via-gold/50 to-gold-light/60" />
+        <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-sky-300 via-gold/60 to-gold" />
         {DAYS.map((day, i) => (
           <button
             key={day.label}
@@ -56,7 +56,7 @@ export default function Timeline() {
             className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 text-sm font-bold transition-all duration-300 ${
               selected === i
                 ? "scale-110 border-gold bg-gold text-ocean-950 shadow-glow-gold"
-                : "border-gold/40 bg-ocean-900 text-gold-light hover:border-gold hover:scale-105"
+                : "border-sky-300 bg-white text-ocean-700 hover:border-gold hover:scale-105"
             }`}
           >
             {day.label}
@@ -72,8 +72,8 @@ export default function Timeline() {
           transition={{ duration: 0.25 }}
           className="card mt-5 px-6 py-4"
         >
-          <p className="font-bold text-gold">{DAYS[selected].title}</p>
-          <p className="mt-1 text-sm text-slate-300">{DAYS[selected].detail}</p>
+          <p className="font-bold text-gold-dark">{DAYS[selected].title}</p>
+          <p className="mt-1 text-sm text-ocean-700">{DAYS[selected].detail}</p>
         </motion.div>
       </AnimatePresence>
     </div>

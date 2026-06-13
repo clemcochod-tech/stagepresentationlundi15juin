@@ -10,7 +10,7 @@ export default function SlideTitre() {
       {/* Fallback hors-ligne sous l'animation liquide (chargée depuis un CDN) */}
       <OceanBackground />
       <LiquidEffectAnimation />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ocean-950/70 via-ocean-950/35 to-ocean-950/80" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-50/70 via-sky-50/40 to-sky-50/75" />
 
       <div className="pointer-events-none relative z-10 flex flex-col items-center px-8 text-center">
         <motion.p
@@ -33,7 +33,7 @@ export default function SlideTitre() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="mt-4 text-3xl font-bold text-white lg:text-4xl"
+          className="mt-4 text-3xl font-bold text-ocean-900 lg:text-4xl"
         >
           Semaine 1
         </motion.p>
@@ -41,7 +41,7 @@ export default function SlideTitre() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-6 max-w-2xl text-lg text-slate-200"
+          className="mt-6 max-w-2xl text-lg text-ocean-700"
         >
           La couche sémantique Omni : du langage naturel à la donnée fiable
         </motion.p>
@@ -49,10 +49,10 @@ export default function SlideTitre() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 1.2 }}
-          className="mt-10 flex flex-col items-center gap-1 text-sm text-slate-300"
+          className="mt-10 flex flex-col items-center gap-1 text-sm text-ocean-600"
         >
           <p>
-            <span className="font-semibold text-white">Clément Cochod</span> ·
+            <span className="font-semibold text-ocean-900">Clément Cochod</span> ·
             Stagiaire Data — Maître de stage : Gary Kapu
           </p>
           <p>Lundi 15 juin 2026 · Jours 1 → 5 (08/06 – 12/06)</p>
