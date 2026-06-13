@@ -9,7 +9,7 @@ const STACK = [
   {
     name: "Omni",
     role: "Couche sémantique & agent IA",
-    logo: "/images/omni-icon.png",
+    logo: "/images/omni-icon.svg",
   },
   { name: "SQL Server", role: "Entrepôt BDT_DWH" },
   { name: "dbt", role: "Transformations & marts" },

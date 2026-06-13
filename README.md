@@ -25,10 +25,9 @@ Déposer les visuels dans `public/images/` avec ces noms exacts :
 
 | Fichier | Contenu | Utilisé sur |
 |---|---|---|
-| `logo-bdt.png` | Logo vahine Brasserie de Tahiti | Slides Titre & Questions |
-| `bdt-batiment.jpg` | Photo du siège BDT | Fond de la slide Titre |
-| `hinano.png` | Bouteille Hinano (fond transparent) | Slide Titre, à droite |
-| `omni-icon.png` | Icône Omni | Slide Contexte (chip stack) |
+| `bdt-batiment.jpg` | Photo du siège BDT (enseigne) | Fond de la slide Questions |
+| `gamme-bouteilles.jpg` | Gamme Tabu / Hinano / Manuia | Slide Questions, bandeau produit |
+| `omni-icon.svg` | Icône Omni (déjà incluse) | Slide Contexte (chip stack) |
 
 Si un fichier manque, l'image est simplement masquée — la présentation
 fonctionne quand même.
