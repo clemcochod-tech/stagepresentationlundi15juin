@@ -42,7 +42,7 @@ export default function SlideVentes() {
               </p>
             </div>
             {i < CHAINE.length - 1 && (
-              <span className="text-2xl text-lagoon">→</span>
+              <span className="text-2xl text-gold">→</span>
             )}
           </div>
         ))}
@@ -50,7 +50,7 @@ export default function SlideVentes() {
 
       <motion.div variants={fadeUp} className="mt-8 grid gap-6 lg:grid-cols-2">
         <div className="card px-6 py-5">
-          <p className="text-5xl font-extrabold text-lagoon">
+          <p className="text-5xl font-extrabold text-gold">
             <AnimatedCounter value={8} />
             <span className="ml-2 text-xl font-semibold text-slate-300">
               skills Omni créés
@@ -60,7 +60,7 @@ export default function SlideVentes() {
             {SKILLS.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-lagoon/30 bg-lagoon/10 px-3 py-1 text-xs font-medium text-lagoon-light"
+                className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-light"
               >
                 {skill}
               </span>

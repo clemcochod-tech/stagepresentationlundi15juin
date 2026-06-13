@@ -80,9 +80,9 @@ export default function SlideWMS() {
         ))}
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className="card card-hover border-lagoon/30 px-5 py-4"
+          className="card card-hover border-gold/30 px-5 py-4"
         >
-          <p className="text-sm font-bold uppercase tracking-wider text-lagoon">
+          <p className="text-sm font-bold uppercase tracking-wider text-gold">
             Pattern commun
           </p>
           <p className="mt-2 font-mono text-sm text-slate-300">

@@ -44,7 +44,7 @@ export default function SlideAchats() {
           </p>
         </div>
         <div className="card card-hover px-6 py-5 text-center">
-          <p className="text-6xl font-extrabold text-lagoon">
+          <p className="text-6xl font-extrabold text-gold-light">
             <AnimatedCounter value={4} decimals={0} />
             <span className="text-3xl font-bold text-slate-300"> Mds XPF</span>
           </p>

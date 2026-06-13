@@ -48,7 +48,7 @@ export default function Timeline() {
   return (
     <div>
       <div className="relative flex items-center justify-between">
-        <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-lagoon/20 via-lagoon/50 to-gold/50" />
+        <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-gold/20 via-gold/50 to-gold-light/60" />
         {DAYS.map((day, i) => (
           <button
             key={day.label}
@@ -56,7 +56,7 @@ export default function Timeline() {
             className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 text-sm font-bold transition-all duration-300 ${
               selected === i
                 ? "scale-110 border-gold bg-gold text-ocean-950 shadow-glow-gold"
-                : "border-lagoon/40 bg-ocean-900 text-lagoon hover:border-lagoon hover:scale-105"
+                : "border-gold/40 bg-ocean-900 text-gold-light hover:border-gold hover:scale-105"
             }`}
           >
             {day.label}

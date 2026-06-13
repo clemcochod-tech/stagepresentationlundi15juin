@@ -14,7 +14,7 @@ body {
 
 @layer components {
   .text-gradient {
-    @apply bg-gradient-to-r from-gold via-gold-light to-lagoon bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
   }
 
   .card {
@@ -22,10 +22,10 @@ body {
   }
 
   .card-hover {
-    @apply hover:border-lagoon/40 hover:bg-white/[0.14] hover:shadow-glow;
+    @apply hover:border-gold/40 hover:bg-white/[0.14] hover:shadow-glow-gold;
   }
 
   .kicker {
-    @apply text-sm font-semibold uppercase tracking-[0.25em] text-lagoon;
+    @apply text-sm font-semibold uppercase tracking-[0.25em] text-gold;
   }
 }

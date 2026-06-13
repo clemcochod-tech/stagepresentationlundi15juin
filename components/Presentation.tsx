@@ -10,6 +10,7 @@ import SlideAchats from "@/components/slides/SlideAchats";
 import SlideAudit from "@/components/slides/SlideAudit";
 import SlideResteAFaire from "@/components/slides/SlideResteAFaire";
 import SlideQuestions from "@/components/slides/SlideQuestions";
+import ShaderBackground from "@/components/ShaderBackground";
 
 const SLIDES = [
   SlideTitre,
@@ -60,9 +61,13 @@ export default function Presentation() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(36, 75, 120, 0.7), transparent), radial-gradient(ellipse 60% 50% at 90% 110%, rgba(39, 181, 169, 0.18), transparent)",
+            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(36, 75, 120, 0.7), transparent), radial-gradient(ellipse 60% 50% at 90% 110%, rgba(240, 196, 94, 0.14), transparent)",
         }}
       />
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[30vh] opacity-80 [mask-image:linear-gradient(to_top,black_50%,transparent)]">
+        <ShaderBackground />
+      </div>
 
       <AnimatePresence mode="wait" custom={direction} initial={false}>
         <motion.div
@@ -83,7 +88,7 @@ export default function Presentation() {
         onClick={prev}
         disabled={index === 0}
         aria-label="Slide précédente"
-        className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl text-slate-300 backdrop-blur transition-all hover:border-lagoon/50 hover:text-lagoon disabled:opacity-20 disabled:hover:border-white/15 disabled:hover:text-slate-300"
+        className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl text-slate-300 backdrop-blur transition-all hover:border-gold/50 hover:text-gold disabled:opacity-20 disabled:hover:border-white/15 disabled:hover:text-slate-300"
       >
         ←
       </button>
@@ -91,7 +96,7 @@ export default function Presentation() {
         onClick={next}
         disabled={index === SLIDES.length - 1}
         aria-label="Slide suivante"
-        className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl text-slate-300 backdrop-blur transition-all hover:border-lagoon/50 hover:text-lagoon disabled:opacity-20 disabled:hover:border-white/15 disabled:hover:text-slate-300"
+        className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl text-slate-300 backdrop-blur transition-all hover:border-gold/50 hover:text-gold disabled:opacity-20 disabled:hover:border-white/15 disabled:hover:text-slate-300"
       >
         →
       </button>
@@ -107,7 +112,7 @@ export default function Presentation() {
         </div>
         <div className="h-1 w-full bg-white/5">
           <motion.div
-            className="h-full bg-gradient-to-r from-gold to-lagoon"
+            className="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light"
             animate={{ width: `${((index + 1) / SLIDES.length) * 100}%` }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           />

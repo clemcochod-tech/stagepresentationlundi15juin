@@ -40,7 +40,7 @@ export default function SlideAudit() {
           </p>
         </div>
         <div className="card card-hover px-6 py-5 text-center">
-          <p className="text-6xl font-extrabold text-lagoon">
+          <p className="text-6xl font-extrabold text-gold-light">
             <AnimatedCounter value={48} />
           </p>
           <p className="mt-2 text-sm text-slate-300">
@@ -85,7 +85,7 @@ export default function SlideAudit() {
           <ul className="space-y-2.5 text-sm text-slate-300">
             {CORRECTIONS.map((c) => (
               <li key={c} className="flex gap-2">
-                <span className="text-lagoon">▸</span>
+                <span className="text-gold">▸</span>
                 <span>{c}</span>
               </li>
             ))}

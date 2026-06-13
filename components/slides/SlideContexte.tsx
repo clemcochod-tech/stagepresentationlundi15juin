@@ -27,7 +27,7 @@ export default function SlideContexte() {
         Construire la couche sémantique d&apos;Omni pour que{" "}
         <span className="text-gold">n&apos;importe quel collaborateur BDT</span>{" "}
         puisse poser une question métier en langage naturel et obtenir une{" "}
-        <span className="text-lagoon">réponse fiable</span>, sans passer par un
+        <span className="text-gold-light">réponse fiable</span>, sans passer par un
         analyste.
       </motion.blockquote>
 

@@ -7,7 +7,7 @@ const COLONNES = [
   {
     titre: "À faire",
     icon: "🎯",
-    accent: "border-t-lagoon",
+    accent: "border-t-gold-light",
     items: [
       "Porter les tiles validées en SQL dans les dashboards Omni",
       "Topic Suivi Supports WMS (fct_mouvements_supports en dbt)",
@@ -60,7 +60,7 @@ export default function SlideResteAFaire() {
             <ul className="mt-4 space-y-3 text-sm text-slate-300">
               {col.items.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="text-lagoon">▸</span>
+                  <span className="text-gold">▸</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -71,10 +71,10 @@ export default function SlideResteAFaire() {
 
       <motion.div
         variants={fadeUp}
-        className="card mt-8 border-l-4 border-l-lagoon px-6 py-4"
+        className="card mt-8 border-l-4 border-l-gold px-6 py-4"
       >
         <p className="text-sm text-slate-300">
-          <span className="font-bold text-lagoon">Leçon de la semaine :</span>{" "}
+          <span className="font-bold text-gold">Leçon de la semaine :</span>{" "}
           l&apos;ai_context est la clé du self-service — un topic bien documenté
           répond du premier coup, un topic mal documenté hallucine. La
           documentation est un livrable au même titre que le code.

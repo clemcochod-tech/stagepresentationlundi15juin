@@ -40,7 +40,7 @@ export default function SlideQuestions() {
           <p>Stagiaire Data — BDT Data Hub</p>
           <a
             href="mailto:clemcochod@gmail.com"
-            className="mt-2 text-lagoon transition-colors hover:text-lagoon-light"
+            className="mt-2 text-gold transition-colors hover:text-gold-light"
           >
             clemcochod@gmail.com
           </a>
